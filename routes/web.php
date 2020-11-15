@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/{any}', 'TestController@index')->where('any', '.*');
 
-Route::get('/', 'TestController@index')->name('index');
+//Route::get('/', 'TestController@index')->name('index');
 

@@ -14,6 +14,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+Route::get('/products', 'TestController@getProducts')->name('get.products');
+Route::get('/products/{product_id}', 'TestController@getProduct')->where('product_id', '[0-9_\-]+')->name('get.product');
+Route::post('/products', 'TestController@add')->name('add.product');
+Route::put('/products/{product_id}', 'TestController@edit')->where('product_id', '[0-9_\-]+')->name('edit.product');
+Route::delete('/products/{product_id}', 'TestController@delete')->where('product_id', '[0-9_\-]+')->name('delete.product');
+
